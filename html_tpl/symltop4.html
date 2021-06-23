@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 321mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/qlfm.png") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			/* 目录 */
+			.tacon {
+				width: 210mm;
+				height: 320.5mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image003.jpg") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			
+			.hpage_toplogo {
+				position: absolute;
+				width: 219px;
+				height: 60px;
+				top: 28mm;
+				left: 32mm;
+			}
+
+			.hpage_toplogo-1 {
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				top: 28mm;
+				left: 54mm;
+			}
+
+			.hpage_bgname {
+				text-align: center;
+				line-height: 150%;
+				font-size: 36.0pt;
+				color: #41AF94;
+			}
+			/* 首页正文行距 -webkit-*/
+			.hpage_lheig {
+				line-height: 200%;
+                color: #6D6E71;
+			}
+
+			.hpage_lheig div {
+				float: left;
+			}
+
+			/* 目录 */
+			
+
+			.tacon_font {
+				list-style: none;
+				font-size: 16pt;
+			}
+
+			.tacon_font li {
+				margin-bottom: 30px;
+			}
+			.setw{
+				font-size: 4pt;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 封面 -->
+			<div class="hpage">
+				
+				<div>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br />
+				</div>
+				<div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>超广谱病原微生物mNGS检测报告</span>
+					</div>
+				</div>
+				<div><br /><br /></div>
+				<div class="hpage_lheig">
+                    <div style="width: 20%;">
+                        <div>&nbsp;</div>
+                    </div>
+					<div style="width: 30%;">
+						<div>受&ensp;检&ensp;者：{{name}}</div>
+					</div>
+					<div style="width: 30%;">
+						<div><span>送检日期：{{collect_date}}</span></div>
+					</div>
+					<div style="width: 20%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+                <div class="hpage_lheig">
+                    <div style="width: 20%;">
+						<div>&nbsp;</div>
+					</div>
+					<div style="width: 30%;">
+						<div><span>样本编号：{{report_id}}</span></div>
+					</div>
+					<div style="width: 30%;">
+						<div><span>送检机构：{{hospital_id}}</span></div>
+					</div>
+					<div style="width: 20%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+			</div>
+			<!-- 目录 -->
+			<div class="tacon">
+				<div>
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				</div>
+				<ul class="tacon_font">
+					<li>
+						<span>
+							基本信息...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 1 -</span> -->
+					</li>
+					<li>
+						<span>
+							检测结果...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 2 -</span> -->
+					</li>
+					<li>
+						<span>
+							结果列表...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 3 -</span> -->
+					</li>
+					<li>
+						<span>
+							疑似人体共生微生物列表..................................................................................
+						</span>
+						<!-- <span class="typeface5">- 4 -</span> -->
+					</li>
+					<li>
+						<span>
+							补充报告-耐药基因..........................................................................................
+						</span>
+						<!-- <span class="typeface5">- 7 -</span> -->
+					</li>
+					<li>
+						<span>
+							测序数据质控....................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 8 -</span> -->
+					</li>
+					<li>
+						<span>
+							微生物解释说明................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 9 -</span> -->
+					</li>
+					<li>
+						<span>
+							检测方法介绍....................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 11 -</span> -->
+					</li>
+					<li>
+						<span>
+							参考文献...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 13 -</span> -->
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+
+			/* 0201.hy标题文字颜色设置 */
+			{% if ybit == '0201.hy' %}
+			.sethyhpage{
+				color: rgb(0, 112, 202);
+			}
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 321mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjktop.png") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			/* 目录 */
+			.tacon {
+				width: 210mm;
+				height: 320.5mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyml.jpeg") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			{% elif ybit == '0413.xy' %}
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 321mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/xytop.png") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			/* 目录 */
+			.tacon {
+				width: 210mm;
+				height: 320.5mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image003.jpg") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			{% else %}
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 321mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image001.jpg") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			/* 目录 */
+			.tacon {
+				width: 210mm;
+				height: 320.5mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image003.jpg") no-repeat;
+				background-size: cover;
+				position: relative;
+			}
+			{% endif %}
+			
+			.hpage_toplogo {
+				position: absolute;
+				width: 219px;
+				height: 60px;
+				top: 28mm;
+				left: 32mm;
+			}
+
+			.hpage_toplogo-1 {
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				top: 28mm;
+				left: 54mm;
+			}
+
+			.hpage_bgname {
+				text-align: center;
+				line-height: 150%;
+				font-size: 36.0pt;
+				color: #176371;
+			}
+
+			/* .hpage_right span {
+				width: 6em;
+				display: inline-block;
+				text-align: justify;
+				vertical-align: top;
+			}
+			.hpage_right span::after{
+				width: 100%;
+				display: inline-block;
+				content: '';
+			} */
+			
+			/* .hpage_right span {
+				width: 100px;
+				display: block;
+				text-align: justify;
+				text-align-last: justify;
+			} */
+			/* 首页正文行距 -webkit-*/
+			.hpage_lheig {
+				line-height: 200%;
+			}
+
+			.hpage_lheig div {
+				float: left;
+			}
+
+			/* 目录 */
+			
+
+			.tacon_font {
+				list-style: none;
+				font-size: 16pt;
+			}
+
+			.tacon_font li {
+				margin-bottom: 30px;
+			}
+			.setw{
+				font-size: 4pt;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 封面 -->
+			<div class="hpage">
+				{% if ybit == '0325.aja' %}
+				<span class="hpage_toplogo">
+					<img width=219 height=60 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/logo.png">
+				</span>
+				{% elif  ybit == '0325.zju' %}
+				<span class="hpage_toplogo-1" style='position:absolute;width:120px;height:120px'>
+					<img width=120 height=120 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zdlogo.png">
+				</span>
+				<p style='position:absolute;top: 34mm;left: 90mm;'>
+					<b><span style='font-size:24.0pt;line-height:125%;color:gray'>郑州大学第一附属医院</span></b>
+				</p>
+				<p style='position:absolute;top: 46mm;left: 90mm;'>
+					<b><span style='font-size:24.0pt;line-height:125%;color:gray'>河南省基因医院</span></b>
+				</p>
+				{% elif  ybit == '0320.nj2h' %}
+				<!-- class="font_hwxk" -->
+				<span class="hpage_toplogo" style="top: 10mm;left: 10mm;">
+					<img width=100 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/njdeyylogo.png">
+				</span>
+				<p style='position:absolute;top: 16mm;left: 40mm;'>
+					<span class="font_hwxk" style='font-size:18pt;color:rgb(255, 255, 255)'>南京市第二医院精准医学中心</span>
+				</p>
+				<p style='position:absolute;top: 24mm;left: 40mm;'>
+					<span class="font_hwxk" style='font-size:13pt;color:rgb(255, 255, 255)'>Nanjing Second Hospital precision Medicine Center</span>
+				</p>
+				{% else %}
+
+				{% endif %}
+				{% if ybit == '0413.xy' %}
+				<div>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br />
+				</div>
+				<div style="width: 100%;">
+					<div class="hpage_bgname" style="color: rgb(35, 74, 112);text-align: left;">
+						<span>病原微生物宏基因组检测报告</span>
+					</div>
+				</div>
+				<div><br /></div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 100%;">
+						<div><span>检测套餐：病原微生物宏基因组检测（{{ proj_type }}）</span></div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 33%;">
+						<div><span>样本编号：{{report_id}}</span></div>
+					</div>
+					<div style="width: 34%;">
+						<div><span>送检机构：{{hospital_id}}</span></div>
+					</div>
+					<div style="width: 33%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 33%;">
+						<div>受&ensp;检&ensp;者：{{name}}</div>
+					</div>
+					<div style="width: 34%;">
+						<div><span>送检科室：{{department_id}}</span></div>
+					</div>
+					<div style="width: 33%;">
+						<div><span>送检医生：{{doctor_name}}</span></div>
+					</div>
+				</div>
+				{% else %}
+				<div>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				</div>
+				{% if ybit == '0201.hy' %}
+				<br /><br />
+				<div style="width: 100%;">
+					<div class="hpage_bgname" style="color: rgb(0, 112, 202);">
+						<span>病原微生物宏基因组检测报告</span>
+					</div>
+				</div>
+				<br />
+				{% else %}
+				<div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>PathoSeq病原微生物</span>
+					</div>
+				</div>
+				<div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>宏基因组检测报告</span>
+					</div>
+				</div>
+				{% endif %}
+				<div><br /></div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 34%;">
+						<div>&nbsp;</div>
+					</div>
+					<div style="width: 16%;">
+						<div class="hpage_right"><span>受&ensp;检&ensp;者&ensp;姓&ensp;名:</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div><span>&emsp;{{name}}&nbsp;</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 34%;">
+						<div>&nbsp;</div>
+					</div>
+					<div style="width: 16%;">
+						<div class="hpage_right"><span>报&emsp;告&emsp;编&emsp;号:</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div><span>&emsp;{{report_id}}&nbsp;</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 34%;">
+						<div>&nbsp;</div>
+					</div>
+					<div style="width: 16%;">
+						<div class="hpage_right"><span>收&emsp;样&emsp;日&emsp;期:</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div><span>&emsp;{{collect_date}}&nbsp;</span></div>
+					</div>
+					<div style="width: 25%;">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+			<!-- 目录 -->
+			<div class="tacon">
+				<div>
+					{% if ybit == '0201.fzch' %}
+					<p style='position:absolute;top: 30mm;left: 44mm;'>
+						<span style='font-size:18pt;color:red'>
+								福建省福州儿童医院-南方医科大学华银病理诊断中心
+						</span>
+					</p>
+					<p style='position:absolute;top: 42mm;left: 100mm;'>
+						<span style='font-size:18pt;color:red'>联合分子中心</span>
+					</p>
+					{% else %}
+
+					{% endif %}
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				</div>
+				<ul class="tacon_font">
+					<li>
+						<span>
+							基本信息...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 1 -</span> -->
+					</li>
+					<li>
+						<span>
+							检测结果...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 2 -</span> -->
+					</li>
+					<li>
+						<span>
+							结果列表...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 3 -</span> -->
+					</li>
+					{% if ybit == '0320.nj2h' or ybit == '0201.fzch' or ybit == '0201.hy' %}
+					<li>
+						<span>
+							补充报告-微生物列表......................................................................................
+						</span>
+						<!-- <span class="typeface5">- 4 -</span> -->
+					</li>
+					{% else %}
+					<li>
+						<span>
+							疑似人体共生微生物列表..................................................................................
+						</span>
+						<!-- <span class="typeface5">- 4 -</span> -->
+					</li>
+					{% endif %}
+					<li>
+						<span>
+							补充报告-耐药基因..........................................................................................
+						</span>
+						<!-- <span class="typeface5">- 7 -</span> -->
+					</li>
+					{% if ybit == '0320.nj2h' or ybit == '0201.fzch' or ybit == '0201.hy' %}
+					
+					{% else %}
+					<li>
+						<span>
+							测序数据质控....................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 8 -</span> -->
+					</li>
+					{% endif %}
+					<li>
+						<span>
+							微生物解释说明................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 9 -</span> -->
+					</li>
+					<li>
+						<span>
+							检测方法介绍....................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 11 -</span> -->
+					</li>
+					<li>
+						<span>
+							参考文献...........................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 13 -</span> -->
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

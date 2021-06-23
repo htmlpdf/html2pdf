@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			* {
+				page-break-inside: avoid;
+				page-break-after: avoid;
+				page-break-before: avoid;
+			}
+			ul {
+				list-style: none;
+			}
+
+			/* table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			} */
+
+			/* 行间距设置 */
+			.plinkhead {
+				line-height: 200%;
+			}
+			/* 小标题设置 */
+			.sixfontset{
+				font-size: 14.0pt;
+				color: #1BB8CE;
+			}
+
+			/* 内容基础设置 */
+			#content {
+				/* width: 210mm; */
+				font-size: 11.0pt;
+				font-family: "黑体", sans-serif;
+				color: #595959;
+			}
+
+			/* 第一页 */
+			/* 表格设置 */
+			.MsoTableGrid {
+				width: 100.0%;
+				border-collapse: collapse;
+				border: none;
+				font-family: "黑体", sans-serif;
+				text-align: center;
+				color: #595959;
+				font-size: 11pt;
+			}
+
+			.MsoTableGrid tr {
+				height: 22pt;
+			}
+
+			.MsoTableGrid tr td {
+				padding: 0cm 5.4pt 0cm 5.4pt;
+			}
+
+			.mtgpu1 {
+				text-align: right;
+			}
+
+			/* 空白颜色填充 */
+			.mtgtop_b {
+				border: solid #1BB8CE 1.0pt;
+				border-top: none;
+				background: #1BB8CE;
+			}
+
+			.mtgtop_nb {
+				border: solid #1BB8CE 1.0pt;
+				border-top: none;
+			}
+
+			.mtgpu1nrd_nb {
+				border-bottom: solid #1BB8CE 1.0pt;
+				border-right: solid #1BB8CE 1.0pt;
+			}
+
+			.mtgpu1nrd_b {
+				border-bottom: solid #1BB8CE 1.0pt;
+				border-right: solid #1BB8CE 1.0pt;
+				background: #EAF6FD;
+			}
+
+			/* 第二页 */
+			.MsoTableGrid_1 {
+				width: 100.0%;
+				border-collapse: collapse;
+				border: none;
+				font-family: "黑体", sans-serif;
+				text-align: center;
+				color: #595959;
+				font-size: 11pt;
+			}
+
+			.MsoTableGrid_1 tr {
+				height: 26pt;
+			}
+
+			.MsoTableGrid_1 tr td {
+				padding: 3.6pt 7.2pt 3.6pt 7.2pt;
+			}
+
+			.mtgtable_1_b {
+				border: solid #1BB8CE 1.0pt;
+				background: #1BB8CE;
+				color: white;
+			}
+
+			.mtgtable_1_nb {
+				border: solid #1BB8CE 1.0pt;
+				/* border-top:none; */
+			}
+			{% if ybit == '0201.hy' %}
+			.tophead {
+				color: #0070CA;
+			}
+
+			.tophead_num {
+				color: #BDD6EE;
+			}
+			.sixfontset{
+				color: #0070CA;
+			}
+			.mtgtop_b {
+				border: solid #0070CA 1.0pt;
+				background: #0070CA;
+			}
+
+			.mtgtop_nb {
+				border: solid #0070CA 1.0pt;
+			}
+
+			.mtgpu1nrd_nb {
+				border-bottom: solid #0070CA 1.0pt;
+				border-right: solid #0070CA 1.0pt;
+			}
+
+			.mtgpu1nrd_b {
+				border-bottom: solid #0070CA 1.0pt;
+				border-right: solid #0070CA 1.0pt;
+			}
+			.mtgtable_1_b {
+				border: solid #0070CA 1.0pt;
+				background: #0070CA;
+			}
+
+			.mtgtable_1_nb {
+				border: solid #0070CA 1.0pt;
+				/* border-top:none; */
+			}
+			{% endif %}
+			.seleft{
+				text-align: left;
+			}
+			.setpsg{
+				text-indent:2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<!-- 第一页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">01</span>&nbsp;
+								<span class="tophead">基本信息</span>
+								<span>&nbsp;</span>
+								<table class="MsoTableGrid forma">
+									<tr>
+										<td width="43%" colspan=2>
+											<p>&nbsp;</p>
+										</td>
+										<td width="37%" colspan=2 class="mtgpu1">
+											<p><span></span></p>
+										</td>
+										<td width="30%" colspan=2>
+											<p style="text-align: right;">
+												<span>报告编号：</span>
+												<span>{{report_id}}</span>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_b">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="14.5%" rowspan=5 class="mtgtop_nb">
+											<p><span>受检者信息</span></p>
+										</td>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>姓名</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{name}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>性别</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{gender}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>年龄(周岁)</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span lang=EN-US>{{age}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>住院号</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{patient_id}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>床号</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{bed_id}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_b">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="14.5%" rowspan=3 class="mtgtop_nb">
+											<p><span>送检方</span></p>
+										</td>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>单位名称</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{hospital_id}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>科室名称</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{department_id}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>送检医生</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{doctor_name}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_b">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="14.5%" rowspan=5 class="mtgtop_nb">
+											<p><span>样本信息</span></p>
+										</td>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>采样日期</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{detect_date}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>收样日期</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{collect_date}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p>
+												<span>报告日期</span>
+											</p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{report_date}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>样本类型</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{sample_type}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>样本体积</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{sample_volume}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_b">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="14.5%" rowspan=11 class="mtgtop_nb">
+											<p><span>临床信息</span></p>
+										</td>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>主诉</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{chief_complaint}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span>临床诊断</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{clinical_diagnosis}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>临床高度关注病原</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{pathogen_tip}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_b">
+											<p><span class="typeface2">临床用药</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{drug_list}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="28.16%" class="mtgpu1nrd_nb">
+											<p><span>是否已使用抗感染药物</span></p>
+										</td>
+										<td width="57.34%" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{is_drug_used}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_b">
+											<p>
+												<span>白细胞计数</span>
+												<span>(WBC)(10<sup>9</sup>/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.86%" class="mtgpu1nrd_b">
+											<p><span>{{wbc}}</span></p>
+										</td>
+										<td style="width: 29.9%" colspan=2 class="mtgpu1nrd_b">
+											<p>
+												<span>中性粒细胞</span>
+												<span>(10<sup>9</sup>/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.58%;" class="mtgpu1nrd_b">
+											<p><span>{{pmn}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_nb">
+											<p>
+												<span>淋巴细胞计数</span>
+												<span>(10<sup>9</sup>/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.86%;" class="mtgpu1nrd_nb">
+											<p><span>{{lym}}</span></p>
+										</td>
+										<td style="width: 29.9%;" colspan=2 class="mtgpu1nrd_nb">
+											<p>
+												<span>血小板</span>
+												<span>(10<sup>9</sup>/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.58%;" class="mtgpu1nrd_nb">
+											<p><span>{{platelet}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_b">
+											<p>
+												<span>C反应蛋白(CRP)(mg/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.86%;" class="mtgpu1nrd_b">
+											<p><span>{{crp}}</span></p>
+										</td>
+										<td style="width: 29.9%;" colspan=2 class="mtgpu1nrd_b">
+											<p>
+												<span>降钙素原(PCT)(μg/L)</span>
+											</p>
+										</td>
+										<td style="width: 13.58%;" class="mtgpu1nrd_b">
+											<p><span>{{pct}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_nb">
+											<p><span>培养结果</span></p>
+										</td>
+										<td style="width: 57.34%;" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{culture}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_b">
+											<p><span>鉴定结果</span></p>
+										</td>
+										<td style="width: 57.34%;" colspan=4 class="mtgpu1nrd_b">
+											<p><span>{{identification}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 28.16%;" class="mtgpu1nrd_nb">
+											<p><span>镜检结果</span></p>
+										</td>
+										<td style="width: 57.34%;" colspan=4 class="mtgpu1nrd_nb">
+											<p><span>{{scopy}}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 100%;" colspan=6 class="mtgtop_b">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 14.5%;" class="mtgtop_nb">
+											<p><span class="typeface2">检测项目</span></p>
+										</td>
+										<td style="width: 85.5;" colspan=5 class="mtgpu1nrd_nb seleft">
+											<p>
+												<span>{{project_type}}</span>
+												<span>病原微生物检测</span>
+											</p>
+										</td>
+									</tr>
+								</table>
+
+								<!-- 第二页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">02</span>&nbsp;
+								<span class="tophead">检测结果</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid_1">
+									<tr>
+										<td width="100%" colspan=2 class="mtgtable_1_b">
+											<p><span class="typeface2">检测结果综述</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 100%;" colspan=2 class="mtgtable_1_nb seleft">
+											<p>
+												<span>对送检样本进行</span>
+												<span>{{proj_type}} </span>
+												<span>病原微生物检测，{{report_type}}，建议医生结合患者临床症状和其他辅助诊断技术，参考本次检测结果，进一步确认感染情况。</span>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=2 class="mtgtable_1_b">
+											<p><span class="typeface2">重点关注指标</span></p>
+										</td>
+									</tr>
+									<!-- 重点关注指标循环rowspan=2 |length -->
+									{% for a in hightyoe %}
+									{% if (a.species|length)==0 %}
+									<tr>
+										<td style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>{{a.name}}</span></p>
+										</td>
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									{% for value in a.species %}
+									{% if a.species|length>1 %}
+									<tr>
+										{% if loop.first==True %}
+										<td rowspan={{ a.species|length }} style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span class="typeface2" lang=EN-US>{{a.name}}</span></p>
+										</td>
+										{% endif %}
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									<tr>
+										<td style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>{{a.name}}</span></p>
+										</td>
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% endif %}
+									{% endfor %}
+									{% endif %}
+									{% endfor %}
+									<!-- 结束 -->
+									<tr>
+										<td width="100%" colspan=2 class="mtgtable_1_b">
+											<p><span>低关注指标</span></p>
+										</td>
+									</tr>
+									<!-- 低关注指标循环 lowtyoe -->
+									{% for a in lowtyoe %}
+									{% if (a.species|length)==0 %}
+									<tr>
+										<td style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>{{a.name}}</span></p>
+										</td>
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									{% for value in a.species %}
+									{% if a.species|length>1 %}
+									<tr>
+										{% if loop.first==True %}
+										<td rowspan={{ a.species|length }} style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>{{a.name}}</span></p>
+										</td>
+										{% endif %}
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									<tr>
+										<td style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>{{a.name}}</span></p>
+										</td>
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% endif %}
+									{% endfor %}
+									{% endif %}
+									{% endfor %}
+									<!-- 结束 -->
+									<tr>
+										<td width="100%" colspan=2 class="mtgtable_1_b">
+											<p><span>内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:30.5%;' class="mtgtable_1_nb">
+											<p><span>内标是否检出</span></p>
+										</td>
+										<td style='width:69.5%;' class="mtgtable_1_nb seleft">
+											<p><span>是</span></p>
+										</td>
+									</tr>
+								</table>
+								<br><br>
+								<!-- 检测者底部 -->
+								<table class="MsoTableGrid_1 forma" border=0 cellspacing=0 cellpadding=0 style='width: 100%;text-align: left;'>
+									<tr>
+										<td width=66 style='width:49.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+											<p><span>检测者：</span></p>
+										</td>
+										<td style='width:77.95pt'>
+											<p>
+												<span>
+													{% if qmgzbit == True %}
+													{% if ybit == '0325.aja' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image006.jpg">
+													{% elif  ybit == '0325.zju' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/la006.jpg">
+													{% elif  ybit == '0413.xy' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/hgn.png">
+													{% elif  ybit == '0201.fzch' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchqm1.png">
+													{% elif  ybit == '0201.hy' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchqm1.png">
+													{% endif %}
+													{% endif %}
+												</span>
+											</p>
+										</td>
+										<td style='width:63.8pt'>
+											<p><span>审核签字：</span></p>
+										</td>
+										<td style='width:106.3pt'>
+											<p>
+												<span>
+													{% if qmgzbit == True %}
+													{% if ybit == '0325.aja' %}
+													<img width=82 height=41 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image007.jpg">
+													{% elif  ybit == '0325.zju' %}
+													<img width=82 height=41 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/ww006.jpg">
+													{% elif  ybit == '0413.xy' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/mwl.jpg">
+													{% elif  ybit == '0201.fzch' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchqm2.png">
+													{% elif  ybit == '0201.hy' %}
+													<img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchqm2.png">
+													{% endif %}
+													{% endif %}
+												</span>
+											</p>
+										</td>
+										<td style='width:63.8pt'>
+											<p>
+												<span style='position:relative;z-index:251664384'>
+													{% if qmgzbit == True %}
+													{% if ybit == '0325.aja' %}
+													<span style='left:0px;position:absolute;left:10px;top:-50px;width:145px;height:145px'>
+														<img width=145 height=145 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image008.png">
+													</span>
+													{% elif  ybit == '0325.zju' %}
+													<span style='left:0px;position:absolute;left:10px;top:-50px;width:260px'>
+														<img width=260 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zjzyz006.png">
+													</span>
+													{% elif  ybit == '0413.xy' %}
+													<span style='left:0px;position:absolute;left:10px;top:-50px;width:145px;height:145px'>
+														<img width=145 height=145 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zndxgz.png">
+													</span>
+													{% elif  ybit == '0201.fzch' %}
+													<span style='left:0px;position:absolute;left:56px;top:-50px;height:120px'>
+														<img  height=120 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchgz.png">
+													</span>
+													{% elif  ybit == '0201.hy' %}
+													<span style='left:0px;position:absolute;left:56px;top:-50px;height:120px'>
+														<img  height=120 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/fzchgz.png">
+													</span>
+													{% endif %}
+													{% endif %}
+												</span>
+												<span>报告日期：</span>
+											</p>
+										</td>
+										<td style='width:125.55pt'>
+											<p><span>{{report_date}}</span></p>
+										</td>
+									</tr>
+									<tr class="plinkhead">
+										<td colspan=6 style='width:486.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+											<p>
+												<span>备注：此报告仅对本次送检样本负责！结果仅供医生参考。</span>
+											</p>
+											<p>
+												<span>若对检测结果有疑问，请于收到报告后 7 个工作日内与我们联系，谢谢合作！</span>
+											</p>
+										</td>
+									</tr>
+								</table>
+
+								<!-- 第三页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">03</span>&nbsp;
+								<span class="tophead">结果列表</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+
+								<table class='MsoTableGrid_1'>
+									{% for a in results_list %}
+									<tr>
+										<td width="100%" colspan=7 class="mtgtable_1_b">
+											<p><span>{{a}}</span></p>
+										</td>
+									</tr>
+									{% if a == '细菌' %}
+									<tr>
+										<td colspan=3 style='width:40.7%;background:#D1EAF8;' class="mtgtable_1_nb">
+											<p><span>属</span>
+											</p>
+										</td>
+										<td colspan=4 style='width:59.3%;background:#EAF6FD;' class="mtgtable_1_nb">
+											<p><span>种</span></p>
+										</td>
+									</tr>
+									{% endif %}
+									{% if listData[loop.index-1]|length == 0 %}
+									{% if a == '真菌' or a == '寄生虫' %}
+									<tr>
+										<td colspan=2 style='width:29.04%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>关注度</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=2 style='width:29.04%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									<tr>
+										<td style='width:8.64%;' class="mtgtable_1_nb">
+											<p><span>类型</span></p>
+										</td>
+										<td style='width:20.4%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>关注度</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:8.64%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20.4%;' class="mtgtable_1_nb">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% endif %}
+									{% else %}
+									{% if a == '细菌' or a == '病毒' or a == '特殊病原体（包括分枝杆菌、支原体/衣原体等）' %}
+									<tr>
+										<td style='width:8.64%;' class="mtgtable_1_nb">
+											<p><span>类型</span></p>
+										</td>
+										<td style='width:20.4%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>关注度</span></p>
+										</td>
+									</tr>
+									{% for tob in listData[loop.index-1] %}
+									{% for t in tob.area %}
+									{% if tob.area|length>1 %}
+									<tr>
+										{% if loop.first==True %}
+										<td rowspan={{ tob.area|length }} style='width:8.64%;' class="mtgtable_1_nb">
+											<p><span class="setenfont">{{t.type}}</span></p>
+										</td>
+										<td rowspan={{ tob.area|length }} style='width:20.4%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td rowspan={{ tob.area|length }} style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										{% endif %}
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>{{t.focus}}</span></p>
+										</td>
+									</tr>
+									{% else %}
+									<tr>
+										<td style='width:8.64%;' class="mtgtable_1_nb">
+											<p><span class="setenfont">{{t.type}}</span></p>
+										</td>
+										<td style='width:20.4%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>{{t.focus}}</span></p>
+										</td>
+									</tr>
+									{% endif %}
+									{% endfor %}
+									{% endfor %}
+									{% else %}
+									<tr>
+										<td colspan=2 style='width:29.04%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span>名称</span></p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>关注度</span></p>
+										</td>
+									</tr>
+									{% for tob in listData[loop.index-1] %}
+									{% for t in tob.area %}
+									{% if tob.area|length>1 %}
+									<tr>
+										{% if loop.first==True %}
+										<td rowspan={{ tob.area|length }}  colspan=2 style='width:29.04%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td rowspan={{ tob.area|length }}  style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										{% endif %}
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>{{t.focus}}</span></p>
+										</td>
+									</tr>
+									{% else %}
+									<tr>
+										<td colspan=2 style='width:29.04%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td style='width:23.32%;' class="mtgtable_1_nb">
+											<p><span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:11.66%;' class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:13.12%;' class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+										<td style='width:11.2%;' class="mtgtable_1_nb">
+											<p><span>{{t.focus}}</span></p>
+										</td>
+									</tr>
+									{% endif %}
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									{% endif %}
+									{% endfor %}
+								</table>
+								<br />
+								<div class="plinkhead forma">
+									<p><span>(1) </span>
+										<span>序列数：高通量测序数据中，唯一比对到某属或某种的特异性序列数量；</span>
+									</p>
+									<p><span>(2) </span>
+										<span>相对丰度：将病原体依据细菌、真菌、病毒和寄生虫进行分类，计算该病原体在相应分类中基因组的相对比例；</span>
+									</p>
+									<p><span>(3) </span>
+										<span>关注度：综合比对序列特异性、序列数量以及病原体临床特征等信息，给出的关注情况。</span>
+									</p>
+								</div>
+								<!-- 第四页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">04</span>&nbsp;
+								<span class="tophead">补充报告-微生物列表</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+
+								<div class="plinkhead">
+									<p  class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>注意及声明
+									</p>
+									<ul class="setpsg">
+										<li><span>1. </span>
+											<span>本部分报告提供的结果，已经排除了可能属于实验室污染的微生物；</span>
+										</li>
+										<li><span>2. </span>
+											<span>本部分展示的微生物无法区别定植微生物与病原微生物；</span>
+										</li>
+										<li><span>3. </span>
+											<span>报告仅供参考，不能作为临床诊断或用药的唯一依据。</span>
+										</li>
+									</ul>
+									<p  class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>注意及声明补充报告提供的微生物
+									</p>
+									<ul class="setpsg">
+										<li><span>1）</span>
+											<span>样本采集过程或分装过程中，环境微生物造成的污染；</span>
+										</li>
+										<li><span>2）</span>
+											<span>样本采集过程或分装过程中，病人、采集人员或分装人员（如皮肤、上呼吸道、口腔、肠道等等）的人体共生微生物；</span>
+										</li>
+										<li><span>3）</span>
+											<span>样本采集容器本身带有的环境微生物；</span>
+										</li>
+										<li><span>4）</span>
+											<span>有可能造成真正感染的病原微生物。</span>
+										</li>
+									</ul>
+								</div>
+								<br>
+								<table class="MsoTableGrid_1">
+									<tr>
+										<td width="100%" colspan=4 class="mtgtable_1_b">
+											<p><span>微生物列表</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:14.48%;' class="mtgtable_1_nb">
+											<p><span>类型</span></p>
+										</td>
+										<td style='width:40.8%;' class="mtgtable_1_nb">
+											<p><span>微生物</span></p>
+										</td>
+										<td style='width:16.02%;' class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:28.68%;' class="mtgtable_1_nb">
+											<p><span>备注</span></p>
+										</td>
+									</tr>
+									{% if areanet|length==0 %}
+									<tr>
+										<td style='width:14.48%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:40.8%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:16.02%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:28.68%;' class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for a in areanet %}
+									<tr>
+										<td style='width:14.48%;' class="mtgtable_1_nb">
+											<p><span>{{a.type}}</span></p>
+										</td>
+										<td style='width:40.8%;' class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{a.microbe}}</span><br>
+												<span class="setenfont">( <i>{{a.microbe_e}}</i> )</span>
+											</p>
+										</td>
+										<td style='width:16.02%;' class="mtgtable_1_nb">
+											<p><span>{{a.count}}</span></p>
+										</td>
+										<td style='width:28.68%;' class="mtgtable_1_nb">
+											<p><span>{{a.note}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endif %}
+								</table>
+								<p class='forma'><span>&nbsp;</span></p>
+								<!-- 第五页 -->
+
+								<!-- 第六页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">05</span>&nbsp;
+								<span class="tophead">补充报告-耐药基因</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								
+								<div class='plinkhead setpsg'>
+									<p><span>临床研究表明，耐药基因与实际表型可能不完全一致，补充报告中的耐药基因检测结果仅供参考。</span></p>
+									<p><span>{{amr_summary}}</span></p>
+								</div>
+								<br>
+								<table class="MsoTableGrid_1 forma">
+									<tr>
+										<td colspan=6 style='width:100.0%;' class="mtgtable_1_b">
+											<p><span>耐药基因</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="20%" class="mtgtable_1_nb">
+											<p><span>耐药基因名称</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p>
+												<span>覆盖度</span><span>(</span><span>%</span><span>)</span>
+											</p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>抗生素</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>抗性机制</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>耐药菌</span></p>
+										</td>
+									</tr>
+									{% if amr|length==0 %}
+									<tr style='height:1.0pt'>
+										<td width="20%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for d in amr %}
+									{% for item in d.area %}
+									{% if d.area|length>1 %}
+									<tr style='height:1.0pt'>
+										<td width="20%" class="mtgtable_1_nb">
+											<p><span class="setenfont"><i>{{item.gene}}</i></span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.count}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.coverage}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span class="isen">{{item.drug}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.mechanisms}}</span></p>
+										</td>
+										{% if loop.first==True %}
+										<td rowspan={{ d.area|length }} width="16%" class="mtgtable_1_nb">
+											<p><span class="isen">{{d.species}}</span><br><span class="setenfont"><i>{{d.species_e}}</i></span></p>
+										</td>
+										{% endif %}
+									</tr>
+									{% else %}
+									<tr style='height:1.0pt'>
+										<td width="20%" class="mtgtable_1_nb">
+											<p><span class="setenfont"><i>{{item.gene}}</i></span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.count}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.coverage}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span class="isen">{{item.drug}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span>{{item.mechanisms}}</span></p>
+										</td>
+										<td width="16%" class="mtgtable_1_nb">
+											<p><span class="isen">{{d.species}}</span><br><span class="setenfont"><i>{{d.species_e}}</i></span></p>
+										</td>
+									</tr>
+									{% endif %}
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+								</table>
+
+								<!-- 第七页 -->
+
+								<!-- 第八页 -->
+								
+								
+								<div  class='plinkhead forma'>
+									<span>&nbsp;</span>
+									<span class="tophead_num">06</span>&nbsp;
+									<span class="tophead">微生物解释说明</span>
+									<span>&nbsp;</span>
+									<p><span>&nbsp;</span></p>
+									<p class="setpsg">
+										<span>
+											检测结果列表中所列物种均是该样本本次检测中检测到的微生物，以细菌，病毒，真菌，寄生虫进行分类，分别按照检出序列数由高到低进行排序，排名靠前者，其相对含量较高。请医生结合患者临床情况作具体判断。现将报告中所列物种的致病信息作以下简单介绍。
+										</span>
+									</p>
+									{% for a in descriptions %}
+									<p><span>{{loop.index}}. </span>
+										<b>
+											{% if ybit == '0201.hy' %}
+											<span style='color:#0070CA'>{{a.name}}</span>
+											{% else %}
+											<span style='color:#1BB8CE'>{{a.name}}</span>
+											{% endif %}
+										</b>
+										<span class="setenfont"> ( <i>{{a.english}}</i> )</span>
+										<span><sup>[{{5+loop.index}}]</sup>: {{a.explain}}</span>
+									</p>
+									{% if a.url_name != '-' %}
+									<p style="margin-top: 10px;text-align: center;">
+										<span><img width=550 height=270 src='{{a.url_name}}'></span>
+									</p>
+									{% endif %}
+									{% endfor %}
+								</div>
+								
+								<!-- 第九页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">07</span>&nbsp;
+								<span class="tophead">检测方法介绍</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								
+								<div class="plinkhead forma">
+									<p class="setpsg">
+										<span>病原微生物宏基因组检测，是基于高通量测序技术</span>
+										<sup><span>[1]</span></sup>
+										<span>，通过与数据库中已有微生物的核酸序列进行比对，从而鉴定微生物的种类</span>
+										<sup><span>[2-3]</span></sup>
+										<span>。检测过程包括：核酸提取、文库构建、测序、信息分析、报告解读等。检测范围包括基因组序列已知的</span>
+										<span>10537</span>
+										<span>种细菌（其中包括</span>
+										<span>121</span>
+										<span>种支原体</span>
+										<span>/</span><span>衣原体）、</span>
+										<span>8472</span>
+										<span>种病毒、</span>
+										<span>903</span>
+										<span>种真菌、</span>
+										<span>89</span>
+										<span>种螺旋体和</span>
+										<span>288</span>
+										<span>种寄生虫。本检测报告提供样本中可检出的具有有效数据的微生物物种信息，为医生进行临床诊断提供参考依据</span>
+										<sup><span>[3-5]</span></sup><span>。</span>
+									</p>
+									
+									<p style="margin-top: 10px;" class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>检测流程
+									</p>
+									<p style="margin-top: 10px;text-align: center;">
+										{% if ybit == '0201.hy' %}
+										<span><img width=594 height=105 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit9.png"></span>
+										{% else %}
+										<span><img width=594 height=105 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image021.png"></span>
+										{% endif %}
+									</p>
+									<p class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>产品特点
+									</p>
+									<p class="setpsg">
+										<span style='font-family:Wingdings'>
+											=<span>&nbsp; </span>
+										</span>
+										<span>无需培养；</span>
+									</p>
+									<p class="setpsg">
+										<span style='font-family:Wingdings'>
+											=<span>&nbsp; </span>
+											</span>
+										<span>无需前提假设；</span>
+									</p>
+									<p class="setpsg">
+										<span style='font-family:Wingdings'>
+											=<span>&nbsp; </span>
+											</span>
+										<span>利用基因组学的方法检测样本中包含的微生物核酸。</span>
+									</p>
+									<p class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>临床应用
+									</p>
+									<p style="margin-top: 10px;text-align: center;">
+										{% if ybit == '0201.hy' %}
+										<span><img width=550 height=270 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit11.png"></span>
+										{% else %}
+										<span><img width=550 height=270 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image023.png"></span>
+										{% endif %}
+									</p>
+								</div>
+								<!-- 第十页 -->
+								<div class="plinkhead forma">
+									<p class='sixfontset'>
+										{% if ybit == '0201.hy' %}
+										<span ><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjbit.png"></span>
+										{% else %}
+										<span><img width=13 height=21 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/image020.png"></span>
+										{% endif %}
+										<span>&nbsp;</span>检测局限性
+									</p>
+									<p>
+										<span>1.</span>
+										<span>本检测报告不包括国家法定的甲类、乙类传染病；</span>
+									</p>
+									<p>
+										<span>2.</span>
+										<span>本检测对病原微生物的检测下限为：</span>
+										<span>100 copies/mL</span><span>（对于病毒为</span>
+										<span>1000 copies/mL</span>
+										<span>），低于检出限，可能会导致无法检出；</span>
+									</p>
+									<p>
+										<span>3.</span>
+										<span>取样不当、标签脱落或运输不当等情况，造成样本耗损或难以辨识，以至于无法检测，有可能需要重新采样；</span>
+									</p>
+									<p>
+										<span>4.</span>
+										<span>抗感染药物的使用可能导致样本中微生物含量的降低，影响检出率。若在采样前已使用抗感染药物，须与临床医师沟通，否则可能导致检测失败；</span>
+									</p>
+									<p>
+										<span>5.</span>
+										<span>鉴于检测技术的局限以及受检者的个体差异等因素，在医院和检测机构严格履行工作职责和操作规范的前提下，仍然存在无法检出和检测失败的可能；</span>
+									</p>
+									<p>
+										<span>6.</span>
+										<span>以上检测结果仅供临床参考，患者诊治需临床医生结合各方面情况综合判断；</span>
+									</p>
+									<p>
+										<span>7.</span>
+										<span>本报告检测结果仅对本次送检样本负责，报告相关解释须咨询临床医生。</span>
+									</p>
+								</div>
+								<!-- 第十二页 -->
+								<span>&nbsp;</span>
+								<span class="tophead_num">08</span>&nbsp;
+								<span class="tophead">参考文献</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+
+								<div class="plinkhead">
+									<p>
+										<span class="setenfont">[1] Blauwkamp TA, Thair S, Rosen MJ, et al.Analytical and
+											clinical validation of a microbial cell-free DNA sequencing test
+											for infectious disease. Nat Microbiol 2019; 4(4): 663-74.
+										</span>
+									</p>
+									<p>
+										<span class="setenfont">[2] Gu W , Miller S , Chiu C Y . ClinicalMetagenomic
+											Next-Generation Sequencing for Pathogen Detection[J]. Annual Review
+											of Pathology Mechanisms of Disease, 2019, 14(1).
+										</span>
+									</p>
+	
+									<p>
+										<span class="setenfont">[3] </span>
+										<span>宏基因组分析和诊断技术在急危重症感染应用专家共识组.
+											宏基因组分析和诊断技术在急危重症感染应用的专家共识[J]. 中华急诊医学杂志, 2019, 028(002):151-155.
+										</span>
+									</p>
+	
+									<p>
+										<span class="setenfont">[4] Yun, Xie, Jiang. Next generation sequencing for diagnosis of
+											severe pneumonia: China, 2010-2018.[J]. Journal of Infection, 2018.
+										</span>
+									</p>
+	
+									<p>
+										<span class="setenfont">[5] Zhang H C , Ai J W , Cui P , et al.Incremental value of
+											metagenomic next generation sequencing for the diagnosis
+											of suspected focal infection in adults[J]. Journal of Infection, 2019, 79(5).
+										</span>
+									</p>
+									<!-- 对应的参考文献循环数据 -->
+									{% for a in papers %}
+									{% if a.conbit == True %}
+									<p>
+										<span class="setenfont">[{{5+loop.index}}] </span>
+										<span>{{a.namecon}}</span>
+									</p>
+									{% else %}
+									<p>
+										<span class="setenfont">[{{5+loop.index}}] {{a.namecon}}</span>
+									</p>
+									{% endif %}
+									{% endfor %}
+								</div>
+								<!-- --- -->
+
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			var alist = document.getElementsByClassName("isen")
+			var re= /^[a-zA-Z]+$/;
+			if(alist){
+				for(var idx = 0; idx < alist.length; idx++){
+					var mya = alist[idx];
+					if (re.test((mya.innerHTML).toString())){
+						mya.className = 'setenfont';
+						console.log(mya.innerHTML);
+					}
+				}
+			}
+		};
+	</script>
+</html>

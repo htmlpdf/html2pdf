@@ -1,0 +1,136 @@
+/* 字体注册 */
+@font-face {
+	font-family: "黑体";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/经典黑体简.TTF');
+}
+
+@font-face {
+	font-family: "Times New Roman";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/Times\ New\ Roman\ .fon');
+}
+
+@font-face {
+	font-family: "微软雅黑";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/msyh.ttc');
+}
+
+@font-face {
+	font-family: "新罗马";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/TimesNewRomanPSBoldMT.ttf');
+}
+
+@font-face {
+	font-family: "华文行楷";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/STXINGKA.TTF');
+}
+@font-face {
+	font-family: "方正兰亭细黑_GBK";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/方正兰亭细黑_GBK.TTF');
+}
+@font-face {
+	font-family: "宋体";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/simsun.ttc');
+}
+@font-face {
+	font-family: "Arial";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/Arial.ttf');
+}
+@font-face {
+	font-family: "courier new";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/Courier\ BOLDITALIC.ttf');
+}
+@font-face {
+	font-family: "Helvetica";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/HELVETI1.TTF');
+}
+@font-face {
+	font-family: "Caslon";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/ACaslonPro-Regular.otf');
+}
+@font-face {
+	font-family: "Wingdings";
+	src: url('/data/softwares/mngs_scripts/report/html2pdf/html_tpl/fonts/webdings.ttf');
+}
+
+
+
+.font_ht {
+	font-family: "黑体", sans-serif;
+}
+
+.font_tnr {
+	font-family: "Times New Roman", sans-serif;
+}
+
+.font_wryh {
+	font-family: "微软雅黑", sans-serif;
+}
+
+.font_xlm {
+	font-family: "新罗马", sans-serif;
+}
+
+.font_hwxk {
+	font-family: "华文行楷", sans-serif;
+}
+.font_fzltxh {
+	font-family: "方正兰亭细黑_GBK", sans-serif;
+}
+.font_st {
+	font-family: "宋体", sans-serif;
+}
+.font_arial {
+	font-family: "Arial", sans-serif;
+}
+.setenfont{
+	font-family: "Arial", sans-serif;
+	/* font-family: "courier new", sans-serif; */
+	/* font-family: "新罗马", sans-serif; */
+	/* font-family: "Times New Roman", sans-serif; */
+	/* font-family: "黑体", sans-serif; */
+	/* font-family: "Helvetica", sans-serif; */
+	/* font-family: "Caslon", sans-serif; */
+}
+
+/* 尺寸设置 */
+.el-main {
+	width: 210mm;
+	overflow: visible;
+}
+
+.tbody_tr_td {
+	/* width: 210mm; */
+	width: 258mm;
+	padding-left: 0;
+	padding-right: 0;
+	/* padding-right: 19.1mm; */
+}
+
+/* 共有css设置 */
+* {
+	padding: 0;
+	margin: 0;
+}
+/* 用于清除浮动 */
+.clear {
+	clear: both;
+}
+
+.forma {
+	page-break-after: always;
+}
+
+.tophead {
+	text-indent: 72.0pt;
+	line-height: 125%;
+	font-size: 24.0pt;
+	font-family: "黑体", sans-serif;
+	color: #1BB8CE;
+	font-weight: normal;
+}
+
+.tophead_num {
+	font-family: "黑体", sans-serif;
+	font-size: 38pt;
+	color: #D9EEF4;
+}

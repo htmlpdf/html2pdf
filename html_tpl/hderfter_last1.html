@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+			/* 页眉页脚 */
+			.toprightsty {
+				width: 100%;
+				text-align: right;
+				font-size: 9pt;
+				margin-top: 26px;
+				color: #595959;
+			}
+
+			/* 页眉页脚设置 */
+			.first {
+				margin: 0cm;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+			}
+
+			table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			}
+
+			.header,
+			.header-space,
+			.footer,
+			.footer-space {
+				height: 25.4mm;
+				width: 210mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				z-index: -1;
+			}
+
+			.header_border div {
+				float: left;
+			}
+
+			.header_border:before {
+				display: table;
+			}
+
+			.header_border:after {
+				display: table;
+				clear: both;
+				content: "";
+			}
+
+			.footset {
+				text-align: right;
+				/* border-bottom: 1px solid rgba(26, 184, 206, 1); */
+			}
+
+			.footset span {
+				font-size: 10pt;
+			}
+            .newkonc{
+                font-size: 8pt;
+                height: 256mm;
+                background-color: rgb(255, 255, 255,0);
+            }
+			/* 行间距设置 */
+			.plinkhead {
+				line-height: 200%;
+                text-align: center;
+                color: #595959;
+			}
+            .setspanwi {
+                /* color: #234A70; */
+                font-size: 14pt;
+            }
+            .setbuttom{
+                border-bottom: 1px solid #39BB9D;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+								<div class="header-space">
+									<div class="header_border">
+									</div>
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<div class="newkonc">
+                                    <span style='position:relative;z-index:-1'>
+                                        <span style='position:absolute;top:-138px;width:950px'>
+                                            <img width=950 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/qldbtop.png">
+                                        </span>
+                                    </span>
+                                    <div class="plinkhead">
+                                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+										<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                        <p class="setspanwi">
+                                            <span><b>人和未来生物科技（长沙）有限公司</b></span>
+                                        </p><br>
+                                        <p>
+                                            <span>国家基因检测技术应用示范中心</span>
+                                        </p>
+                                        <p>
+                                            <span>基因信息大数据应用技术湖南省工程研究中心</span>
+                                        </p>
+                                        <p>
+                                            <span>长沙人和未来医学检验实验室</span>
+                                        </p><br>
+                                        <p><span>基因健康热线</span></p>
+										<p><b><span style="font-size: 16pt;">400-6060-610</span></b></p>
+                                        <p><span>www.genetalks.com</span></p>
+                                        <br>
+                                        <span><img width=80 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/qlewm.png"></span>
+                                        <div class="header_border">
+                                            <div style="width: 35%;" class="setbuttom">&nbsp;</div>
+                                            <div style="width: 30%;">
+                                                <p  style="font-size: 11pt; color: #39BB9D;"><span>美国/<b>圣地亚哥</b> 中国/<b>北京 长沙 杭州</b></span></p>
+                                            </div>
+                                            <div style="width: 35%;" class="setbuttom">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<div class="footer-space">
+                                    <div class="footer_border">
+                                        <div style="width: 100%;">
+                                            <div class="footset">
+												<span class="font_ht">&nbsp;</span>
+												<span style='position:relative;z-index:-1'>
+													<span style='position:absolute;left:-6px;top:32px;width:66px'>
+														<img width=66 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/ajanexb.png">
+													</span>
+												</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

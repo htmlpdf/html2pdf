@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 321mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/xytop.png") no-repeat;
+				background-size: cover;
+				position: relative;
+				color: #595959
+			}
+			/* 目录 */
+			.tacon {
+				width: 210mm;
+				height: 320.5mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background-size: cover;
+				position: relative;
+			}
+			
+			.hpage_toplogo {
+				position: absolute;
+				width: 219px;
+				height: 60px;
+				top: 28mm;
+				left: 32mm;
+			}
+
+			.hpage_toplogo-1 {
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				top: 28mm;
+				left: 54mm;
+			}
+
+			
+			.hpage_bgname {
+				text-align: center;
+				line-height: 150%;
+				font-size: 26.0pt;
+				color: #176371;
+			}
+
+			.hpage_right {
+				text-align: right;
+			}
+
+			.hpage_right span {
+				width: 140px;
+				display: block;
+				text-align: justify;
+				text-align-last: justify;
+			}
+
+			/* 首页正文行距 */
+			.hpage_lheig {
+				line-height: 200%;
+				font-size: 22pt;
+			}
+
+			.hpage_lheig div {
+				float: left;
+			}
+			.sethyhpage{
+				font-size: 11pt;
+			}
+
+			/* 目录 */
+			
+			.tacon div p span{
+				font-size:36pt;
+				color:#595959
+			}
+			.tacon_font {
+				list-style: none;
+				font-size: 16pt;
+			}
+
+			.tacon_font li {
+				margin-bottom: 30px;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 封面 -->
+			<div class="hpage">
+				<div>
+					{% if ybit == '0618.cd' %}
+					<span style='position:absolute;height: 46px;top: 32mm;left: 54mm;'>
+						<img height=46 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zndxxyyx.png">
+					</span>
+					<span style='position:absolute;height: 70px;top: 30mm;left: 134mm;'>
+						<img height=70 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/cdfm.png">
+					</span>
+					{% else %}
+
+					{% endif %}
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br />
+				</div>
+				<div style="width: 100%;">
+					<div class="hpage_bgname" style="color: rgb(35, 74, 112);text-align: left;">
+						<span>病原微生物宏基因组检测报告</span>
+					</div>
+				</div>
+				<div><br /></div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 100%;">
+						<div><span>检测套餐：病原微生物宏基因组检测（{{ proj_type }}）</span></div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 33%;">
+						<div><span>样本编号：{{report_id}}</span></div>
+					</div>
+					<div style="width: 67%;">
+						<div><span>送检机构：{{hospital_id}}</span></div>
+					</div>
+				</div>
+				<div class="hpage_lheig sethyhpage">
+					<div style="width: 33%;">
+						<div>受 检 者：{{name}}</div>
+					</div>
+					<div style="width: 34%;">
+						<div><span>送检科室：{{department_id}}</span></div>
+					</div>
+					<div style="width: 33%;">
+						<div><span>送检医生：{{doctor_name}}</span></div>
+					</div>
+				</div>
+			</div>
+			<!-- 目录 -->
+			<div class="tacon">
+				<div>
+					<br><br><br><br><br><br><br><br><br>
+					<p style="text-align: center;">
+						<span>目录</span>
+					</p>
+					<br><br><br><br>
+				</div>
+				<ul class="tacon_font">
+					<li>
+						<span>
+							一、基本信息...................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 1 -</span> -->
+					</li>
+					<li>
+						<span>
+							二、检测结果...................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 2 -</span> -->
+					</li>
+					<li>
+						<span>
+							三、结果列表...................................................................................................
+						</span>
+						<!-- <span class="typeface5">- 3 -</span> -->
+					</li>
+					<li>
+						<span>
+							四、疑似人体共生微生物列表..........................................................................
+						</span>
+						<!-- <span class="typeface5">- 4 -</span> -->
+					</li>
+					<li>
+						<span>
+							五、补充报告-耐药基因..................................................................................
+						</span>
+						<!-- <span class="typeface5">- 7 -</span> -->
+					</li>
+					<li>
+						<span>
+							六、测序数据质控............................................................................................
+						</span>
+						<!-- <span class="typeface5">- 8 -</span> -->
+					</li>
+					<li>
+						<span>
+							七、微生物解释说明........................................................................................
+						</span>
+						<!-- <span class="typeface5">- 9 -</span> -->
+					</li>
+					<li>
+						<span>
+							八、检测方法介绍............................................................................................
+						</span>
+						<!-- <span class="typeface5">- 11 -</span> -->
+					</li>
+					<li>
+						<span>
+							九、参考文献...................................................................................................
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			* {
+				page-break-inside: avoid;
+				page-break-after: avoid;
+				page-break-before: avoid;
+			}
+			ul {
+				list-style: none;
+			}
+
+			/* table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			} */
+
+			/* 行间距设置 */
+			.plinkhead {
+				line-height: 200%;
+			}
+			/* 小标题设置 */
+			.sixfontset{
+				font-size: 12.0pt;
+				color: #ED7D31;
+			}
+
+			/* 内容基础设置 */
+			#content {
+				/* width: 210mm; */
+				font-size: 11.0pt;
+				font-family: "宋体", sans-serif;
+				color: #595959;
+			}
+
+			/* 第一页 */
+			/* 表格设置 */
+			
+
+			/* 第二页 */
+			.MsoTableGrid_1 {
+				width: 100.0%;
+				border-collapse: collapse;
+				border: none;
+				font-family: "宋体", sans-serif;
+				text-align: center;
+				color: #595959;
+				font-size: 10pt;
+			}
+
+			.MsoTableGrid_1 tr {
+				height: 26pt;
+			}
+
+			.MsoTableGrid_1 tr td {
+				padding: 3.6pt 7.2pt 3.6pt 7.2pt;
+			}
+
+			.mtgtable_1_b {
+				border: solid #1BB8CE 1.0pt;
+				background: #1BB8CE;
+				color: white;
+			}
+
+			.mtgtable_1_nb {
+				border: solid #000000 1.0pt;
+                border-left: none;
+                border-right: none;
+			}
+            .mtgtable_2_b{
+                border: solid #ED7D31 1.0pt;
+                border-top: solid #ED7D31 2.0pt;
+				background: #FCE4D6;
+				color: #ED7D31;
+            }
+            .mtgtable_2_nb{
+                border: solid #ED7D31 1.0pt;
+                border-bottom: solid #ED7D31 2.0pt;
+            }
+            .setbtfont{
+                font-size: 14pt;
+            }
+            .setsuboclor{
+                background:#FCE4D6;
+            }
+            .setmclos{
+                line-height: 200%;
+                font-size: 9pt;
+                padding-left: 40px;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_st">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<!-- 第一页 -->
+                                <div class="plinkhead">
+                                    <p class="setbtfont">
+										<span>
+											<b>样本编号：{{report_id}}&nbsp;&nbsp;送检日期：{{detect_date}}&nbsp;&nbsp;姓名：{{name}}</b>
+                                        </span>
+									</p>
+                                    <p class="setbtfont">
+										<span>
+                                            <b>检测结果</b>
+										</span>
+									</p>
+                                    <p>
+										<span>
+											&nbsp;&nbsp;&nbsp;
+                                            该送检样本进行了{{proj_type}}检测。
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+											&nbsp;&nbsp;&nbsp;
+                                            {{report_type}}。该样本中检测到的疑似病原体（包括检出较低序列的疑似病原体、常见院内感染菌、以及具有可能致病性的人体定植菌等情况）{{all_backlist}}。列表最后将各物种的详细描述、分类特征、致病信息列出，请医生结合患者临床症状、其它检测及辅助诊断手段，参考此检测结果，进一步确认患者感染情况。
+                                        </span>
+									</p>
+                                </div>
+
+								<!-- 第三页 -->
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">1.细菌列表</span>
+                                <p><span>&nbsp;</span></p>
+								<table class='MsoTableGrid_1'>
+									<tr>
+                                        <td colspan=1 rowspan=2 class="mtgtable_1_nb">
+											<p><b><span>类型</span></b></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=4 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if bacteriaList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in bacteriaList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span class="setenfont">{{t.type}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.genus}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.genus_e}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">2.真菌列表</span>
+                                <p><span>&nbsp;</span></p>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=4 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if fungiList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in fungiList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.genus}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.genus_e}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">3.病毒列表</span>
+                                <p><span>&nbsp;</span></p>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if virusList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in virusList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">4.寄生虫列表</span>
+                                <p><span>&nbsp;</span></p>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=4 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if parasiteList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in parasiteList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.genus}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.genus_e}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">5.特殊病原体列表</span>
+                                <p><span>&nbsp;</span></p>
+                                <span class="sixfontset">（1）分枝杆菌列表</span>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=4 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if mycoList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in mycoList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.genus}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.genus_e}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+                                <span class="sixfontset">（2）支原体/衣原体列表</span>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=4 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+                                    {% if zytList|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in zytList %}
+									{% for t in tob.area %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.genus}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.genus_e}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.gcount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{t.species_e}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+                                <span class="sixfontset">（3）疑似病原体*及人体定植菌列表</span>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+                                        <td colspan=1 rowspan=2 class="mtgtable_1_nb">
+											<p><b><span>类型</span></b></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>属</span></b></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb">
+											<p><b><span>种</span></b></p>
+										</td>
+                                        <td colspan=1 rowspan=2 class="mtgtable_1_nb">
+											<p><b><span>备注</span></b></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>中文名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>序列数</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>中文名</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>拉丁名</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+									</tr>
+                                    {% if backlist|length==0 %}
+                                    <tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in backlist %}
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span class="setenfont">{{tob.type}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.g_zn}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<span class="setenfont"><i>{{tob.g_en}}</i></span>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span>{{tob.g_count}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.zn}}</span>
+											</p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<span class="setenfont"><i>{{tob.en}}</i></span>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{tob.count}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>{{tob.note}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+								<span class="sixfontset">6.细菌耐药基因检出列表</span>
+                                <p><span>&nbsp;</span></p>
+                                <table class='MsoTableGrid_1'>
+									<tr>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>基因</span></b></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>物种拉丁名</span></b></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><b><span>物种中文名</span></b></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><b><span>抗生素</span></b></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><b><span>抗生素名字</span></b></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><b><span>序列数</span></b></p>
+										</td>
+									</tr>
+                                    {% if amr|length==0 %}
+                                    <tr>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>未检出</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+                                    {% else %}
+									{% for tob in amr %}
+									{% for t in tob.area %}
+									<tr>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span class="setenfont"><i>{{t.gene}}</i></span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p><span class="setenfont"><i>{{tob.species_e}}</i></span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb setsuboclor">
+											<p>
+												<span class="isen">{{tob.species}}</span>
+											</p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span class="isen">{{t.drug_en}}</span></p>
+										</td>
+										<td colspan=1 class="mtgtable_1_nb">
+											<p><span class="isen">{{t.drug}}</span></p>
+										</td>
+                                        <td colspan=1 class="mtgtable_1_nb">
+											<p>
+												<span>{{t.count}}</span>
+											</p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+                                    {% endif %}
+								</table>
+                                <p><span>&nbsp;</span></p>
+                                <div class="setmclos">
+                                    <p>
+										<span>
+                                            <b>注：由于耐药基因与实际耐药表型并不完全一致，所以报告检出的耐药基因仅供临床医生参考。</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>属<sup>b</sup>：生物分类的基本单位，种是属的下一级分类单位</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>拉丁名<sup>c</sup>：微生物分类学对本物种的国际正式命名</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>序列数<sup>d</sup>：指在属/种水平上，准确比对到该微生物的特异性序列条数</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>相对丰度<sup>e</sup>：将病原体按照细菌（包括分枝杆菌）、真菌、病毒、寄生虫等进行分类，相对丰度是指该病原体在相应分类中，所有个体的相对比例，体现该病原体在该分类中的含量高低</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>种<sup>f</sup>：生物分类的基本单位，属是种的上一级分类单位</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>疑似病原体<sup>*</sup>：包括检出序列数低的可能的病原体、环境中常见的机会致病菌、常见院内感染菌、以及具有可能致病性的人体定植菌等情况</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>- ：表示此栏无准确信息</b>
+                                        </span>
+									</p>
+                                    <p style="font-size: 15.75pt;">
+                                        <span>
+                                            <b>数据质控结果</b>
+                                        </span>
+                                    </p>
+                                    <p><span>&nbsp;</span></p>
+                                    <table class='MsoTableGrid_1' border=1 cellspacing=0 cellpadding=0 style='width: 94%;'>
+                                        <tr>
+                                            <td colspan=2 class="mtgtable_2_b" style="border-left: solid #ED7D31 2.0pt;">
+                                                <p>
+                                                    <b><span>总序列数</span></b>
+                                                </p>
+                                            </td>
+                                            <td colspan=3 class="mtgtable_2_b">
+                                                <p>
+                                                    <b><span>人类DNA过滤后序列数</span></b>
+                                                </p>
+                                            </td>
+                                            <td colspan=3 class="mtgtable_2_b">
+                                                <p>
+                                                    <b><span>非人类序列百分比(%)</span></b>
+                                                </p>
+                                            </td>
+                                            <td colspan=2 class="mtgtable_2_b" style="border-right: solid #ED7D31 2.0pt;">
+                                                <p>
+                                                    <b><span>准确性(%)</span></b>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=2 class="mtgtable_2_nb" style="border-left: solid #ED7D31 2.0pt;">
+												{% if total_reads|length==0 %}
+												<p><span>-</span></p>
+												{% else %}
+                                                <p><span>{{ total_reads }}</span></p>
+												{% endif %}
+                                            </td>
+                                            <td colspan=3 class="mtgtable_2_nb">
+												{% if nonhuman_reads|length==0 %}
+												<p><span>-</span></p>
+												{% else %}
+                                                <p>
+                                                    <span>{{nonhuman_reads}}</span>
+                                                </p>
+												{% endif %}
+                                            </td>
+                                            <td colspan=3 class="mtgtable_2_nb">
+												{% if nonhuman_rate|length==0 %}
+												<p><span>-</span></p>
+												{% else %}
+                                                <p>
+                                                    <span>{{nonhuman_rate}}</span>
+                                                </p>
+												{% endif %}
+                                            </td>
+                                            <td  colspan=2 class="mtgtable_2_nb" style="border-right: solid #ED7D31 2.0pt;">
+												{% if q30|length==0 %}
+												<p><span>-</span></p>
+												{% else %}
+												<p><span>{{ q30 }}</span></p>
+												{% endif %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p><span>&nbsp;</span></p>
+                                    <p>
+										<span>
+                                            <b>总序列数：经高通量测序方法得到的核酸序列总数。</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>人类DNA过滤后序列数：样本中去除人源核酸序列后检出的微生物的核酸序列总数。</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>非人类序列百分比：样本中去除人源核酸序列后检出的微生物核酸序列的百分比。</b>
+                                        </span>
+									</p>
+                                    <p>
+										<span>
+                                            <b>准确性：Q30，Illumina测序平台碱基质量值≥30的碱基所占的比例，该值越高，说明测序越准确。</b>
+                                        </span>
+									</p>
+                                </div>
+                                
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			var alist = document.getElementsByClassName("isen")
+			var re= /^[a-zA-Z]+$/;
+			if(alist){
+				for(var idx = 0; idx < alist.length; idx++){
+					var mya = alist[idx];
+					if (re.test((mya.innerHTML).toString())){
+						mya.className = 'setenfont';
+						console.log(mya.innerHTML);
+					}
+				}
+			}
+		};
+	</script>
+</html>

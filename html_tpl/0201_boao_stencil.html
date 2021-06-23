@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			* {
+				page-break-inside: avoid;
+				page-break-after: avoid;
+				page-break-before: avoid;
+			}
+			ul {
+				list-style: none;
+			}
+
+			/* table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			} */
+
+			/* 行间距设置 */
+			.plinkhead {
+				line-height: 200%;
+			}
+			/* 小标题设置 */
+			/* .sixfontset{
+				font-size: 12.0pt;
+				color: #1BB8CE;
+			} */
+
+			/* 内容基础设置 */
+			#content {
+				/* width: 210mm; */
+				font-size: 10.0pt;
+				font-family: "微软雅黑", sans-serif;
+				color: #595959;
+			}
+
+			/* 第一页 */
+			/* 表格设置 */
+			.MsoTableGrid {
+				width: 100.0%;
+				border-collapse: collapse;
+				border: none;
+				font-family: "微软雅黑", sans-serif;
+				color: #595959;
+				font-size: 9pt;
+			}
+
+			.MsoTableGrid tr {
+				height: 26pt;
+			}
+
+			.MsoTableGrid tr td {
+				padding: 0cm 5.4pt 0cm 5.4pt;
+			}
+
+			.mtgpu1 {
+				text-align: right;
+			}
+
+			/* 空白颜色填充 */
+			.mtgtop_b {
+				border: solid #595959 1.0pt;
+				/* border-top: none; */
+				background: #1BB8CE;
+			}
+
+			.mtgtop_nb {
+				border: solid #595959 1.0pt;
+			}
+
+			/* 第二页 */
+			.MsoTableGrid_1 {
+				width: 100.0%;
+				border-collapse: collapse;
+				border: none;
+				font-family: "微软雅黑", sans-serif;
+				text-align: center;
+				color: #595959;
+				font-size: 9pt;
+			}
+
+			.MsoTableGrid_1 tr {
+				height: 26pt;
+			}
+
+			.MsoTableGrid_1 tr td {
+				padding: 3.6pt 7.2pt 3.6pt 7.2pt;
+			}
+
+			.mtgtable_1_b {
+				border: solid #585858 1.0pt;
+    			background: #ACD8E6;
+			}
+
+			.mtgtable_1_nb {
+				border: solid #585858 1.0pt;
+			}
+			.tophead{
+				color: #006666;
+				font-size: 12pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_wryh">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<!-- 第一页 -->
+								<span class="tophead">一、基本信息</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								<p><span>(一) </span>
+									<span>受检者</span>
+								</p>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid">
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>姓名：{{ name }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>性别：{{ gender }}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>年龄：{{ age }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>住院号/门诊号：{{ patient_id }}</span></p>
+										</td>
+									</tr>
+								</table>
+								<p><span>&nbsp;</span></p>
+								<p><span>(二) </span>
+									<span>样品信息</span>
+								</p>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid">
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p>
+												<span>送检号</span>
+												<span style="color: #BFBFBF;">（暂以报告编号代替）</span>
+												<span>： {{ report_id }}</span>
+											</p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p>
+												<span>样品编号</span>
+												<span style="color: #BFBFBF;">（暂以报告编号代替）</span>
+												<span>： {{ report_id }}</span>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>样品类型：{{ sample_type }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>样品体积：{{ sample_volume }}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>接收日期：{{ collect_date }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>报告日期：{{ report_date }}</span></p>
+										</td>
+									</tr>
+								</table>
+								<p><span>&nbsp;</span></p>
+								<p><span>(三) </span>
+									<span>送检信息</span>
+								</p>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid">
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>送检单位：{{ hospital_id }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>送检科室：{{ department_id }}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>送检医生：{{ doctor_name }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+								</table>
+								<p><span>&nbsp;</span></p>
+								<p><span>(四) </span>
+									<span>临床信息</span>
+								</p>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid">
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_nb">
+											<p><span>临床症状：{{ chief_complaint }}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>前期检测：{{ identification }}</span></p>
+										</td>
+										<td width="50%" colspan=3 class="mtgtop_nb">
+											<p><span>重点关注：{{ pathogen_tip }}</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td width="100%" colspan=6 class="mtgtop_nb">
+											<p><span>前期用药：{{ drug_list }}</span></p>
+										</td>
+									</tr>
+								</table>
+								<br><br><br><br><br>
+								<table class="MsoTableGrid_1 forma" border=0 cellspacing=0 cellpadding=0 style='width: 100%;text-align: left;'>
+									<tr>
+										<td width=66 style='width:49.4pt;padding:0cm 5.4pt 0cm 5.4pt'>
+											<p><span>检测者：</span></p>
+										</td>
+										<td style='width:77.95pt'>
+											<p><span><img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/boaoqm1.png"></span></p>
+										</td>
+										<td style='width:63.8pt'>
+											<p><span>审核签字：</span></p>
+										</td>
+										<td style='width:106.3pt'>
+											<p><span><img width=97 height=58 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/boaoqm2.png"></span>
+											</p>
+										</td>
+										<td style='width:63.8pt'>
+											<p><span>报告日期：</span></p>
+										</td>
+										<td style='width:125.55pt'>
+											<p><span>{{report_date}}</span></p>
+										</td>
+									</tr>
+								</table>
+								
+								<!-- 第二页 -->
+								<span class="tophead">二、检测结果</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid forma">
+									<tr>
+										<td width="100%" colspan=2 class="mtgtop_nb">
+											<p><span>1. 检出&lt;高置信度&gt;阳性指标</span></p>
+										</td>
+									</tr>
+									<!-- 重点关注指标循环rowspan=2 |length -->
+									{% if hightyoe|length==0 %}
+									<tr>
+										<td style='width:100%;text-align: center;' class="mtgtop_nb">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									{% for a in hightyoe %}
+									{% for value in a.species %}
+									<tr>
+										<td style='width:100%;text-align: center;' class="mtgtop_nb">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									<!-- 结束 -->
+									<tr>
+										<td width="100%" colspan=2 class="mtgtop_nb">
+											<p><span>2. 检出&lt;中置信度&gt;阳性指标</span></p>
+										</td>
+									</tr>
+									<!-- 低关注指标循环 lowtyoe -->
+									{% if lowtyoe|length==0 %}
+									<tr>
+										<td style='width:100%;text-align: center;' class="mtgtop_nb">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+									</tr>
+									{% else %}
+									{% for a in lowtyoe %}
+									{% for value in a.species %}
+									<tr>
+										<td style='width:100%;text-align: center;' class="mtgtop_nb">
+											<p>
+												<span class="isen">{{value.species_cn}}</span><span class="setenfont"> ( <i>{{value.species_e}}</i> )</span>
+											</p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									<tr>
+										<td width="100%" colspan=2 class="mtgtop_nb">
+											<p><span>3. 检出&lt;疑似&gt;阳性指标</span></p>
+										</td>
+									</tr>
+									<!-- 疑似指标循环 backlist -->
+									<tr>
+										<td style='width:100%;text-align: center;' class="mtgtop_nb">
+											<p>
+												<span>-</span>
+											</p>
+										</td>
+									</tr>
+									<!-- 结束 -->
+									<!-- 说明 backlist -->
+									{% if descriptions|length!=0 %}
+									<tr>
+										<td style='width:100%;' class="mtgtop_nb">
+											{% for a in descriptions %}
+											<p class="plinkhead">
+												<b><span class="isen">{{a.name}}</span><span class="setenfont"> ( <i>{{a.english}}</i> )</span></b>
+												<span>：{{a.explain}}</span>
+											</p>
+											{% endfor %}
+										</td>
+									</tr>
+									{% endif %}
+									<!-- 结束 -->
+									<tr>
+										<td style='width:100%;' class="mtgtop_nb">
+											<p><span>置信度：基于综合信息，评估样品中所鉴定出病原体的可信度。</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:100%;' class="mtgtop_nb">
+											<p>
+												<span>对送检样本进行病原微生物检测，{{ report_type }}，建议医生结合患者临床症状和其他辅助诊断技术，参考本次检测结果，进一步确认感染情况。</span>
+											</p>
+										</td>
+									</tr>
+								</table>
+
+								<!-- 第三页 -->
+								<span class="tophead">三、结果列表</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+
+								<table class='MsoTableGrid_1 forma'>
+									<!-- 病毒筛查结果 -->
+									<tr>
+										<td width="100%" colspan=12 class="mtgtable_1_b">
+											<p><span>1. 病毒筛查结果</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(属)</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(种)</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+									{% if virusList|length==0 %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for tob in virusList %}
+									{% for t in tob.area %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									<!-- 2. 细菌筛查结果 -->
+									<tr>
+										<td width="100%" colspan=12 class="mtgtable_1_b">
+											<p><span>2. 细菌筛查结果</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(属)</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(种)</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+									{% if bacteria_specialList|length==0 %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for tob in bacteria_specialList %}
+									{% for t in tob.area %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									<!-- 3. 真菌、寄生虫筛查结果 -->
+									<tr>
+										<td width="100%" colspan=12 class="mtgtable_1_b">
+											<p><span>3. 真菌、寄生虫筛查结果</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(属)</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>名称(种)</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>序列数</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>相对丰度</span></p>
+										</td>
+									</tr>
+									{% if fungi_parasiteList|length==0 %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for tob in fungi_parasiteList %}
+									{% for t in tob.area %}
+									<tr>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{tob.genus}}</span><br><span class="setenfont"><i>{{tob.genus_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:30%;' colspan=3 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.species}}</span><br><span class="setenfont"><i>{{t.species_e}}</i></span>
+											</p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.scount}}</span></p>
+										</td>
+										<td style='width:20%;' colspan=3 class="mtgtable_1_nb">
+											<p><span>{{t.abundance}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+									<!-- 4. 耐药基因筛查结果 -->
+									<tr>
+										<td width="100%" colspan=12 class="mtgtable_1_b">
+											<p><span>4. 耐药基因筛查结果</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td style='width:34%;' colspan=4 class="mtgtable_1_nb">
+											<p><span>检测到的耐药基因</span></p>
+										</td>
+										<td style='width:33%;' colspan=4 class="mtgtable_1_nb">
+											<p><span>基因耐药参考</span></p>
+										</td>
+										<td style='width:33%;' colspan=4 class="mtgtable_1_nb">
+											<p><span>检出序列数</span></p>
+										</td>
+									</tr>
+									{% if amr|length==0 %}
+									<tr>
+										<td style='width:34%;'  colspan=4 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:33%;'  colspan=4 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+										<td style='width:33%;'  colspan=4 class="mtgtable_1_nb">
+											<p><span>-</span></p>
+										</td>
+									</tr>
+									{% else %}
+									{% for tob in amr  %}
+									{% for t in tob.area %}
+									<tr>
+										<td style='width:34%;'  colspan=4 class="mtgtable_1_nb">
+											<p>
+												<span><i>{{t.gene}}</i></span>
+											</p>
+										</td>
+										<td style='width:33%;'  colspan=4 class="mtgtable_1_nb">
+											<p>
+												<span class="isen">{{t.drug}}</span>
+											</p>
+										</td>
+										<td style='width:33%;'  colspan=4 class="mtgtable_1_nb">
+											<p><span>{{t.count}}</span></p>
+										</td>
+									</tr>
+									{% endfor %}
+									{% endfor %}
+									{% endif %}
+								</table>
+								<!-- 第四页 -->
+								<span class="tophead">四、测序质控</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								<table class="MsoTableGrid_1 forma">
+									<tr>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+										<td colspan=2 class="mtgtable_1_nb">
+											<p><span>测序平台：</span></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb">
+											<p><span>BioelectronSeq4000</span></p>
+										</td>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+										<td colspan=2 class="mtgtable_1_nb">
+											<p><span>总reads数：</span></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb">
+											{% if total_reads|length==0 %}
+											<p><span>-</span></p>
+											{% else %}
+											<p><span>{{ total_reads }}</span></p>
+											{% endif %}
+										</td>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+										<td colspan=2 class="mtgtable_1_nb">
+											<p><span>人源reads数：</span></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb">
+											{% if human_reads|length==0 %}
+											<p><span>-</span></p>
+											{% else %}
+											<p><span>{{ human_reads }}</span></p>
+											{% endif %}
+										</td>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+										<td colspan=2 class="mtgtable_1_nb">
+											<p><span>微生物reads数：</span></p>
+										</td>
+										<td colspan=3 class="mtgtable_1_nb">
+											{% if micro_reads|length==0 %}
+											<p><span>-</span></p>
+											{% else %}
+											<p><span>{{ micro_reads }}</span></p>
+											{% endif %}
+										</td>
+										<td colspan=2 style="border: none;">
+											<p><span>&nbsp;</span></p>
+										</td>
+									</tr>
+								</table>
+								<!-- 第五页 -->
+								<span class="tophead">五、检测方法学介绍</span>
+								<span>&nbsp;</span>
+								<p><span>&nbsp;</span></p>
+								
+								<div class="plinkhead">
+									<p><span>（一）检测内容</span></p><br>
+									<p>
+										<span>
+											基于二代测序的宏基因组测序技术，直接对样品中的核酸进行检测，获得样品中微生物的序列信息，无需提前预判感染微生物，无偏向性的鉴定可疑致病微生物。
+										</span>
+									</p><br>
+									<p><span>（二）检测局限性</span></p><br>
+									<p>
+										<span>
+											1.本方法与其它检测方法一样，有自身的检测能力和检测范围，本次检测未报告微生物不代表样本中一定不存在致病微生物，并不能排除受检者感染某种病原微生物的可能性，其原因包括但不限于： 1). 样品中病原微生物浓度低于检测限； 2). 病原微生物未被涵盖在检测范围内。
+										</span>
+									</p><br>
+									<p>
+										<span>
+											2.临床研究表明，耐药基因与实际耐药表型并不完全一致，报告中耐药基因检测结果仅供临床参考。
+										</span>
+									</p><br>
+									<p><span>（三）检测结果说明</span></p><br>
+									<p>
+										<span>
+											1.以上检测结果仅供临床参考，不作为临床诊断唯一依据，如有疑义请在收到结果后七个工作日内与我们联系；
+										</span>
+									</p><br>
+									<p>
+										<span>
+											2.本报告结果仅对本次送检样品负责，报告相关解释需咨询临床医生；
+										</span>
+									</p><br>
+									<p>
+										<span>
+											3.本检测对该结果保密并依法保护受检者隐私，但因受检者个人原因出现信息外泄，本实验室不承担相应责任。
+										</span>
+									</p><br>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			var alist = document.getElementsByClassName("isen")
+			var re= /^[a-zA-Z]+$/;
+			if(alist){
+				for(var idx = 0; idx < alist.length; idx++){
+					var mya = alist[idx];
+					if (re.test((mya.innerHTML).toString())){
+						mya.className = 'setenfont';
+						console.log(mya.innerHTML);
+					}
+				}
+			}
+		};
+	</script>
+</html>

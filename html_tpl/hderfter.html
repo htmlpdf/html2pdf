@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+			/* 页眉页脚 */
+			.toprightsty {
+				width: 100%;
+				text-align: right;
+				margin-top: 20px;
+			}
+
+			/* 页眉页脚设置 */
+			.first {
+				margin: 0cm;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+			}
+
+			table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			}
+
+			.header,
+			.header-space,
+			.footer,
+			.footer-space {
+				height: 25.4mm;
+				width: 210mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				z-index: -1;
+			}
+
+			.header_border {
+				margin-top: 40px;
+				border-bottom: 1px solid rgba(26, 184, 206, 1);
+			}
+
+			.header_border div {
+				float: left;
+			}
+
+			.header_border:before {
+				display: table;
+			}
+
+			.header_border:after {
+				display: table;
+				clear: both;
+				content: "";
+			}
+
+			.footset {
+				text-align: right;
+				border-bottom: 1px solid rgba(26, 184, 206, 1);
+			}
+
+			.footset span {
+				font-size: 10pt;
+			}
+            .newkonc{
+                width: 210mm;
+				/* height: 288mm; */
+                height: 256mm;
+                background-color: rgb(255, 255, 255,0);
+            }
+
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+								<div class="header-space">
+									{% if ybit == '0320.nj2h' %}
+									<div class="header_border" style="margin-top: 30px;">
+									{% else %}
+									<div class="header_border">
+									{% endif %}
+										{% if ybit == '0320.nj2h' %}
+										<div style="width: 10%;">
+											<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/njdeyylogo.png" alt="headlogo" height="48px">
+										</div>
+										<div style="width: 40%;">
+											<p class="font_hwxk" style="margin-top: 10px;">
+												<b><span style="font-size:14pt;color:rgb(47, 84, 150)">南京市第二医院精准医学中心</span></b>
+											</p>
+											<p class="font_hwxk" style="margin-top: 4px;">
+												<b><span style="font-size:9.5pt;color:rgb(47, 84, 150)">Nanjing Second Hospital precision Medicine Center</span></b>
+											</p>
+										</div>
+										{% else %}
+										<div style="width: 50%;">
+											<div>
+												{% if ybit == '0325.aja' %}
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/logo.png" alt="headlogo" height="38px">
+												{% elif  ybit == '0325.zju' %}
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zdlogo.png" alt="headlogo" height="38px">
+												{% elif  ybit == '0413.xy' %}
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zndxxyyx.png" alt="headlogo" height="38px">
+												{% elif  ybit == '0201.fzch' %}
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/czchymlogo.png" alt="headlogo" height="38px">
+												{% elif  ybit == '0201.hy' %}
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjklogo.png" alt="headlogo" height="38px">
+												{% else %}
+				
+												{% endif %}
+											</div>
+										</div>
+										{% endif %}
+										<div style="width: 50%;">
+											{% if ybit == '0320.nj2h' %}
+											<div class="toprightsty"  style="margin-top: 32px;">
+											{% else %}
+											<div class="toprightsty">
+											{% endif %}
+												{% if ybit == '0320.nj2h' %}
+												<span class="font_ht">PathoSeq病原微生物宏基因组检测报告</span>
+												{% elif  ybit == '0201.fzch' %}
+												<span class="font_ht">&nbsp;</span>
+												{% elif  ybit == '0201.hy' or ybit == '0413.xy' %}
+												<span class="font_ht">病原微生物宏基因组报告</span>
+												{% else %}
+												<span class="font_ht">PathoSeq病原微生物宏基因组检测报告</span>
+												{% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<div class="newkonc">
+                                </div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<div class="footer-space">
+                                    <div class="footer_border">
+                                        <div style="width: 100%;">
+                                            <div class="footset">
+                                                {% if ybit == '0320.nj2h' or ybit == '0201.fzch' %}
+												<span class="font_ht">&nbsp;</span>
+												{% elif  ybit == '0201.hy' %}
+												<span class="font_ht">让人们的生活更健康</span>
+												{% elif  ybit == '0325.zju' %}
+												<span class="font_ht">客服电话：617052（院内短号）</span>
+												{% else %}
+												<span class="font_ht">客户服务热线：0591-23535351</span>
+												{% endif %}
+												<span style='position:relative;z-index:-1'>
+													<span style='position:absolute;left:-6px;top:-26px;width:66px'>
+														<img width=66 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/ajanexb.png">
+													</span>
+												</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

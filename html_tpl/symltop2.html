@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+
+			.hpage {
+				width: 210mm;
+				/* height: 358mm; */
+				height: 320mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				background: url("/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/boaotop.png") no-repeat;
+				background-size: cover;
+				position: relative;
+				color: #808080
+			}
+			
+
+			.hpage_bgname {
+				text-align: center;
+				line-height: 150%;
+                font-size: 13pt;
+			}
+
+
+
+			
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_wryh">
+			<!-- 封面 -->
+			<div class="hpage">
+				<div>
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+					<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    
+				</div>
+                <div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>姓名：{{ name }}</span>
+					</div>
+				</div>
+                <br />
+				<div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>日期：{{ report_date }}</span>
+					</div>
+				</div>
+				<div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
+				<div style="width: 100%;">
+					<div class="hpage_bgname">
+						<span>福建博奥医学检验所</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

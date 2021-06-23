@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/css/pdfFonts.css">
+		<style>
+			ul {
+				list-style: none;
+			}
+			/* 页眉页脚 */
+			.toprightsty {
+				width: 100%;
+				text-align: right;
+				font-size: 9pt;
+				margin-top: 26px;
+				color: #595959;
+			}
+
+			/* 页眉页脚设置 */
+			.first {
+				margin: 0cm;
+			}
+
+			.header {
+				position: fixed;
+				top: 0;
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 0;
+			}
+
+			table {
+				page-break-inside: auto;
+			}
+
+			tr {
+				page-break-inside: avoid;
+				page-break-after: auto;
+			}
+
+			.header,
+			.header-space,
+			.footer,
+			.footer-space {
+				height: 25.4mm;
+				width: 210mm;
+				padding-left: 19.1mm;
+				padding-right: 19.1mm;
+				z-index: -1;
+			}
+
+			.header_border {
+				margin-top: 40px;
+				/* border-bottom: 1px solid rgba(26, 184, 206, 1); */
+			}
+
+			.header_border div {
+				float: left;
+			}
+
+			.header_border:before {
+				display: table;
+			}
+
+			.header_border:after {
+				display: table;
+				clear: both;
+				content: "";
+			}
+
+			.footset {
+				text-align: right;
+				/* border-bottom: 1px solid rgba(26, 184, 206, 1); */
+			}
+
+			.footset span {
+				font-size: 10pt;
+			}
+            .newkonc{
+                font-size: 8pt;
+                height: 256mm;
+                background-color: rgb(255, 255, 255,0);
+            }
+			/* 行间距设置 */
+			.plinkhead {
+				line-height: 200%;
+                text-align: center;
+                color: #595959;
+			}
+            .setspanwi {
+                color: #234A70;
+                font-size: 14pt;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="dirao" class="font_ht">
+			<!-- 主要内容 -->
+			<div id="content">
+				<table>
+					<thead>
+						<tr>
+							<td>
+								<div class="header-space">
+									<div class="header_border">
+										{% if ybit == '0618.cd' %}
+										{% else %}
+										<div style="width: 50%;">
+											<div>
+												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zndxxyyx.png" alt="headlogo" height="38px">
+											</div>
+										</div>
+										<div style="width: 50%;">
+											<div class="toprightsty">
+												<span class="font_ht">病原微生物宏基因组报告</span>
+											</div>
+										</div>
+										{% endif %}
+									</div>
+								</div>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="tbody_tr_td">
+								<div class="newkonc">
+                                    <div class="plinkhead">
+                                        <br><br><br><br><br><br><br><br><br><br>
+                                        <p>
+											{% if ybit == '0618.cd' %}
+											<span><img width=56 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/xylogo.png"></span>
+											<span style='height: 30px;position: relative;top: -3mm;'>
+												<img height=30 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zndxxyyx.png">
+											</span>
+											{% else %}
+											<span><img width=120 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/xylogo.png"></span>
+											{% endif %}
+                                        </p><br>
+										{% if ybit == '0618.cd' %}
+										<p>
+											<span style='height: 60px;'>
+												<img height=60 src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/cdfm.png">
+											</span>
+										</p>
+										{% else %}
+										<br>
+                                        <p class="setspanwi">
+                                            <span class="font_fzltxh">中南大学湘雅医学检验所</span>
+                                        </p>
+                                        <p style="color: #234A70;font-size: 4.5pt;">
+                                            <span class="font_fzltxh">XIANGYA MEDICAL LABORATORY CENTRAL SOUTH UNIVERSITY</span>
+                                        </p>
+										{% endif %}
+										<br><br><br><br><br><br>
+                                        <p>
+                                            <span>国家卫健委个体化医学检测培训基地</span>
+                                        </p>
+                                        <p>
+                                            <span>国家卫健委个体化医学检测试点单位</span>
+                                        </p><br>
+										<p><b><span style="font-size: 11pt;">---</span></b></p>
+                                        <p><span>电话</span></p>
+                                        <p><b><span style="font-size: 11pt;">400-8923-358</span></b></p><br>
+                                        <p><span>地址</span></p>
+                                        <p><span>湖南省长沙市湘雅路110号中南大学湘雅医学院原图书馆4楼</span></p>
+                                    </div>
+                                </div>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td>
+								<div class="footer-space">
+                                    <div class="footer_border">
+                                        <div style="width: 100%;">
+                                            <div class="footset">
+												<span class="font_ht">&nbsp;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
