@@ -393,19 +393,21 @@ mltemp2 = ['一、基本信息', '二、检测结果', '三、结果列表', '�
 mltemp3 = ['一、基本信息', '二、检测结果', '三、结果列表', '四、疑似人体共生微生物列表', '五、补充报告-耐药基因',  '六、测序数据质控', '七、微生物解释说明', '八、检测方法介绍', '九、参考文献']
 mltempobj = {
     '0413.xy': mltemp, '0325.aja': mltemp, '0325.zju': mltemp, '0320.nj2h': mltemp1, '0201.fzch': mltemp1, '0201.hy': mltemp1, '0201.mz': mltemp2,
-    '0525.xy': mltemp3, '0618.ql': mltemp, '0618.cd': mltemp3,
+    '0525.xy': mltemp3, '0618.ql': mltemp, '0618.cd': mltemp3, '0625.zk': mltemp
 }
 # 不同版本对于的使用模版对照表
 contrastobj = {
     '0413.xy': '0325_0413_stencil', '0325.aja': '0325_0413_stencil', '0325.zju': '0325_0413_stencil', '0320.nj2h': '0320_nj2h_stencil',
     '0201.fzch': '0320_nj2h_stencil','0201.hy': '0320_nj2h_stencil', '0201.mz': '0201_mz_stencil','0201.boao': '0201_boao_stencil',
     '0420.ry': '0420_ry_stencil', '0525.xy': '0525_xy_stencil', '0618.ql': '0325_0413_stencil', '0618.cd': '0525_xy_stencil',
+	'0625.zk': '0325_0413_stencil'
 }
 # 对于模版的对于封面及页眉页脚模版对照表
 fmluymyjobj = {
     '0413.xy': ['hderfter','symltop','hderfter_last'], '0325.aja': ['hderfter','symltop'], '0325.zju': ['hderfter','symltop'], '0320.nj2h': ['hderfter','symltop'],
     '0201.fzch': ['hderfter','symltop'],'0201.hy': ['hderfter','symltop'], '0201.mz': ['hderfter1','symltop1'], '0201.boao': ['hderfter2','symltop2'],
-    '0525.xy': ['hderfter3','symltop3','hderfter_last'],'0618.ql':['hderfter4','symltop4','hderfter_last1'],'0618.cd': ['hderfter3','symltop3','hderfter_last']
+    '0525.xy': ['hderfter3','symltop3','hderfter_last'],'0618.ql':['hderfter4','symltop4','hderfter_last1'],'0618.cd': ['hderfter3','symltop3','hderfter_last'],
+	'0625.zk': ['hderfter','symltop']
 }
 
 if __name__ == '__main__':

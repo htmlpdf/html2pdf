@@ -124,6 +124,10 @@
 												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/czchymlogo.png" alt="headlogo" height="38px">
 												{% elif  ybit == '0201.hy' %}
 												<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/gzhyjklogo.png" alt="headlogo" height="38px">
+												{% elif  ybit == '0625.zk' %}
+												<div style="margin-top: 32px;">
+													<span class="font_ht">客服电话：400-1537-527</span>
+												</div>
 												{% else %}
 				
 												{% endif %}
@@ -142,6 +146,10 @@
 												<span class="font_ht">&nbsp;</span>
 												{% elif  ybit == '0201.hy' or ybit == '0413.xy' %}
 												<span class="font_ht">病原微生物宏基因组报告</span>
+												{% elif  ybit == '0625.zk' %}
+												<span class="font_ht">
+													<img src="/data/softwares/mngs_scripts/report/html2pdf/html_tpl/img/zkjytop.png" alt="headlogo" height="38px">
+												</span>
 												{% else %}
 												<span class="font_ht">PathoSeq病原微生物宏基因组检测报告</span>
 												{% endif %}
@@ -167,7 +175,7 @@
                                     <div class="footer_border">
                                         <div style="width: 100%;">
                                             <div class="footset">
-                                                {% if ybit == '0320.nj2h' or ybit == '0201.fzch' %}
+                                                {% if ybit == '0320.nj2h' or ybit == '0201.fzch' or ybit == '0625.zk' %}
 												<span class="font_ht">&nbsp;</span>
 												{% elif  ybit == '0201.hy' %}
 												<span class="font_ht">让人们的生活更健康</span>

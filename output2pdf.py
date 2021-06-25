@@ -118,6 +118,11 @@ def getSampleInfo(inputfile,inputdir):
                 sample[tpl[0]].update({ 'ybit':'0618.cd' ,'shuiyin':'','qmgzbit':True })
                 sample[tpl[0]].update({ 'project_type':tpl[2] })
                 xysample.append(tpl[0])
+            elif tpl[-1].find('zk') > -1:
+                print(f'中科报告：{tpl[0]}')
+                sample[tpl[0]].update({ 'ybit':'0625.zk' ,'shuiyin':'','qmgzbit':True })
+                sample[tpl[0]].update({ 'project_type':tpl[2] })
+                njsample.append(tpl[0])
             else:
                 print(f'aja/zju/nj 报告：{tpl[0]}')
                 sample[tpl[0]].update({ 'project_type':tpl[2] })
