@@ -233,7 +233,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -326,7 +326,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -382,7 +382,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -475,7 +475,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -569,7 +569,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -661,7 +661,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td colspan=1 class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 									</tr>
 									{% endfor %}
@@ -905,12 +905,12 @@
                                             </td>
                                             <td colspan=3 class="mtgtable_2_b">
                                                 <p>
-                                                    <b><span>非人类序列百分比(%)</span></b>
+                                                    <b><span>非人类序列百分比(<span class="font_wryh">%</span>)</span></b>
                                                 </p>
                                             </td>
                                             <td colspan=2 class="mtgtable_2_b" style="border-right: solid #ED7D31 2.0pt;">
                                                 <p>
-                                                    <b><span>准确性(%)</span></b>
+                                                    <b><span>准确性(<span class="font_wryh">%</span>)</span></b>
                                                 </p>
                                             </td>
                                         </tr>
@@ -936,7 +936,7 @@
 												<p><span>-</span></p>
 												{% else %}
                                                 <p>
-                                                    <span>{{nonhuman_rate}}</span>
+                                                    <span>{{nonhuman_rate}}<span class="font_wryh">%</span></span>
                                                 </p>
 												{% endif %}
                                             </td>
@@ -944,7 +944,7 @@
 												{% if q30|length==0 %}
 												<p><span>-</span></p>
 												{% else %}
-												<p><span>{{ q30 }}</span></p>
+												<p><span>{{ q30 }}<span class="font_wryh">%</span></span></p>
 												{% endif %}
                                             </td>
                                         </tr>

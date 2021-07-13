@@ -207,7 +207,7 @@ def getSampleInfo(inputfile,inputdir):
                     's_zn': pos[8],
                     's_en': pos[3],
                     'scount': format(int(float(pos[4])),','),
-                    'abundance': str(abu_clean) + str('%'),
+                    'abundance': str(abu_clean),
                     'focus': pos[7]}
             znen[pos[0]][pos[10]] = {'genus':pos[9], 'genus_e':pos[10], 'gcount': format(int(float(pos[5])), ','), 'g_en': pos[10], 'g_zn': pos[9]}
             if pos[10] in znen[pos[0]]:
@@ -406,7 +406,7 @@ def getSampleInfo(inputfile,inputdir):
                             en = e[-1]
                             drug_en = e[4]
                             genename = e[1]
-                            coverage = str(float('%.1f' % float(e[3]))) + str('%')
+                            coverage = str(float('%.1f' % float(e[3])))
                             amr[the_id][e[-1]] = { 'species':spen2cn[e[-1]],'species_e': e[-1] }
                             if the_id in rysample:
                                 amr[i][e[-1]] = { 'species_e':en, 'species':spen2cn[e[-1]] }

@@ -416,7 +416,10 @@ if __name__ == '__main__':
     # 水印文字变量
     watermark = texdata["shuiyin"]
     # 自定义文件名变量
-    setout_name = f'{texdata["report_id"]}_{texdata["department_id"]}_{texdata["name"]}_mNGS检测报告'
+    if setwname == '0201.boao':
+        setout_name = f'{texdata["name"]}_{texdata["report_id"]}'
+    else:
+        setout_name = f'{texdata["report_id"]}_{texdata["department_id"]}_{texdata["name"]}_mNGS检测报告'
     modename = contrastobj[setwname]
     if setwname == '0420.ry':
         html_set_data(modename)

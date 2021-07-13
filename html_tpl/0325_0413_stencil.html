@@ -389,9 +389,7 @@
 										<td style="width: 29.9%;" colspan=2 class="mtgpu1nrd_b">
 											<p>
 												<span>降钙素原</span>
-												<span>(PCT)(</span>
-												<span>μ</span>
-												<span>g/L)</span>
+												<span>(PCT)(μg/L)</span>
 											</p>
 										</td>
 										<td style="width: 13.58%;" class="mtgpu1nrd_b">
@@ -849,7 +847,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td style='width:13.12%;' class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td style='width:11.2%;' class="mtgtable_1_nb">
 											<p><span>{{t.focus}}</span></p>
@@ -877,7 +875,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td style='width:13.12%;' class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td style='width:11.2%;' class="mtgtable_1_nb">
 											<p><span>{{t.focus}}</span></p>
@@ -929,7 +927,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td style='width:13.12%;' class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td style='width:11.2%;' class="mtgtable_1_nb">
 											<p><span>{{t.focus}}</span></p>
@@ -953,7 +951,7 @@
 											<p><span>{{t.scount}}</span></p>
 										</td>
 										<td style='width:13.12%;' class="mtgtable_1_nb">
-											<p><span>{{t.abundance}}</span></p>
+											<p><span>{{t.abundance}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td style='width:11.2%;' class="mtgtable_1_nb">
 											<p><span>{{t.focus}}</span></p>
@@ -1123,7 +1121,7 @@
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
 											<p>
-												<span>覆盖度</span><span>(</span><span>%</span><span>)</span>
+												<span>覆盖度</span><span>(</span><span class="font_wryh">%</span><span>)</span>
 											</p>
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
@@ -1169,7 +1167,7 @@
 											<p><span>{{item.count}}</span></p>
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
-											<p><span>{{item.coverage}}</span></p>
+											<p><span>{{item.coverage}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
 											<p><span class="isen">{{item.drug}}</span></p>
@@ -1192,7 +1190,7 @@
 											<p><span>{{item.count}}</span></p>
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
-											<p><span>{{item.coverage}}</span></p>
+											<p><span>{{item.coverage}}<span class="font_wryh">%</span></span></p>
 										</td>
 										<td width="16%" class="mtgtable_1_nb">
 											<p><span class="isen">{{item.drug}}</span></p>
@@ -1226,7 +1224,7 @@
 								        </td>
 								        <td style='width:50%;' class="mtgtable_1_b">
 								            <p  style='font-size: 12.0pt;'>
-												<b><span>Q30比例(%)</span></b>
+												<b><span>Q30比例(<span class="font_wryh">%</span>)</span></b>
 								            </p>
 								        </td>
 								    </tr>
@@ -1242,7 +1240,7 @@
 											{% if q30|length==0 %}
 											<p><span>-</span></p>
 											{% else %}
-								            <p><span>{{ q30 }}</span></p>
+								            <p><span>{{ q30 }}<span class="font_wryh">%</span></span></p>
 											{% endif %}
 								        </td>
 								    </tr>
